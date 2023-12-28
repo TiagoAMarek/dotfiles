@@ -1,8 +1,17 @@
 *
-!astro/
-!kitty/
-!lazyvim/
-!nvim/
-!skhd/
-!tmux/
-!yabai/
+
+!*/
+
+# track this file
+
+!.gitignore
+
+# allowlist 
+
+!astro/**/*
+!kitty/**/*
+!lazyvim/**/*
+!nvim/**/*
+!skhd/**/*
+!tmux/**/*
+!yabai/**/*
