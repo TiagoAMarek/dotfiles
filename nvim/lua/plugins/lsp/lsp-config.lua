@@ -20,7 +20,6 @@ return {
 
       local lspconfig = require 'lspconfig'
       local null_ls = require 'null-ls'
-      local util = require 'lspconfig.util'
 
       lspconfig.jsonls.setup {}
       lspconfig.tsserver.setup {}

@@ -7,7 +7,7 @@ vim.wo.number = true
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
-vim.o.scrolloff = 8
+vim.o.scrolloff = 8 -- cursor distance from top/bottom of page
 
 vim.o.foldenable = true   -- enable fold for nvim-ufo
 vim.o.foldlevel = 99      -- set high foldlevel for nvim-ufo
@@ -21,7 +21,13 @@ vim.o.clipboard = 'unnamedplus'
 -- Enable break indent
 vim.o.breakindent = true
 vim.o.copyindent = true
+
+-- use spaces for tabs and whatnot
 vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.shiftround = true
+vim.o.expandtab = true
+--
 -- Save undo history
 vim.o.undofile = true
 
@@ -44,8 +50,8 @@ vim.o.termguicolors = true
 
 -- G options
 vim.g.icons_enabled = true -- disable icons in the UI (disable if no nerd font is available)
-vim.g.autoformat_enabled = true
 
+vim.cmd [[ set noswapfile ]]
 
 -- Copilot
 -- vim.g.copilot_no_tab_map = true

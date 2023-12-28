@@ -2,7 +2,7 @@ return {
   {
     'mawkler/modicator.nvim',
     dependencies = 'rebelot/kanagawa.nvim', -- Add your colorscheme plugin here
-    init = function()
+    config = function()
       -- These are required for Modicator to work
       vim.o.cursorline = true
       vim.o.number = true

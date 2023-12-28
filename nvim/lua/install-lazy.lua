@@ -26,6 +26,7 @@ require('lazy').setup({
   { import = 'plugins.ai' },
   { import = 'plugins.git' },
   { import = 'plugins.lsp' },
+  { import = 'plugins.navigation' },
   { import = 'plugins.visual' },
   ui = {
     border = "double",

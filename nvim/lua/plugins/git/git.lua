@@ -4,16 +4,19 @@ return {
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
+    keys = {
+      { '<leader>gf', require('telescope.builtin').git_files, desc = 'Find Git Files' },
+    },
     opts = {
       -- See `:help gitsigns.txt`
       signs = {
-        add = { text = "▎" },
+        -- add = { text = "▎" },
         -- change = { text = "▎" },
         -- delete = { text = "" },
         -- topdelete = { text = "" },
         -- changedelete = { text = "▎" },
         -- untracked = { text = "▎" },
-        -- add = { text = '+' },
+        add = { text = '+' },
         change = { text = '~' },
         delete = { text = '_' },
         topdelete = { text = '‾' },

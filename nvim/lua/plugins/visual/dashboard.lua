@@ -4,7 +4,7 @@ return {
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
-
+	priority = 10000,
 	config = function()
 		local alpha = require("alpha")
 		local dashboard = require("alpha.themes.dashboard")
