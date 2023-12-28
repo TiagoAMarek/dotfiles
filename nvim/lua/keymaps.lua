@@ -1,6 +1,3 @@
-local utils = require "kickstart.utils"
-local is_available = utils.is_available
-
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
