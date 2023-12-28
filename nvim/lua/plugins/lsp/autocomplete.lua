@@ -17,7 +17,7 @@ return {
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
-    local lsp_zero = require 'lsp-zero'
+    -- local lsp_zero = require 'lsp-zero'
 
     require('luasnip.loaders.from_vscode').lazy_load()
     luasnip.config.setup {}
@@ -29,7 +29,7 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
-      formatting = lsp_zero.cmp_format(),
+      -- formatting = lsp_zero.cmp_format(),
       mapping = cmp.mapping.preset.insert {
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
