@@ -1,4 +1,4 @@
-# cursor #f1c232
+cursor #f1c232
 background_opacity  0.9
 font_family         JetBrainsMonoNL Nerd Font Mono
 bold_font        auto
@@ -15,9 +15,3 @@ map ctrl+l kitten pass_keys.py right  ctrl+l
 
 allow_remote_control yes
 listen_on unix:/tmp/mykitty
-
-
-# BEGIN_KITTY_THEME
-# kanagawabones
-include current-theme.conf
-# END_KITTY_THEME

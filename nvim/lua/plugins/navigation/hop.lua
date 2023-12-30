@@ -4,7 +4,7 @@ return {
     opts = {},
     keys = {
       {
-        "<leader>;",
+        "<leader>w",
         function() require("hop").hint_words() end,
         mode = { "n" },
         desc = "Hop hint words",
@@ -16,7 +16,7 @@ return {
         desc = "Hop hint lines",
       },
       {
-        "<leader>;",
+        "<leader>w",
         function() require("hop").hint_words { extend_visual = true } end,
         mode = { "v" },
         desc = "Hop hint words",

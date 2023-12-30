@@ -20,6 +20,7 @@ require('which-key').register {
   ['<leader>m'] = { name = 'Messages', _ = 'which_key_ignore' },
   ['<leader>s'] = { name = 'Session Manager', _ = 'which_key_ignore' },
   ['<leader>b'] = { name = 'Buffers', _ = 'which_key_ignore' },
+  ['<leader>t'] = { name = 'Tests', _ = 'which_key_ignore' },
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`

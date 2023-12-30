@@ -15,6 +15,7 @@ return {
       },
     },
     keys = {
+      { "<Esc>", function () require("mini.files").close() end },
       {
         "<leader>o",
         function()

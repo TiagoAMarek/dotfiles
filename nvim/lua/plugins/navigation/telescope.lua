@@ -1,23 +1,28 @@
 return {
   {
-  -- Fuzzy Finder (files, lsp, etc)
-  'nvim-telescope/telescope.nvim',
-  version = false,
-  dependencies = { 'nvim-lua/plenary.nvim' },
-  config = function()
-    -- [[ Configure Telescope ]]
-    -- See `:help telescope` and `:help telescope.setup()`
-    require('telescope').setup {
-      defaults = {
-        mappings = {
-          i = {
-            ['<C-u>'] = false,
-            ['<C-d>'] = false,
+    -- Fuzzy Finder (files, lsp, etc)
+    'nvim-telescope/telescope.nvim',
+    version = false,
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    keys = {
+      keys = {
+        { '<leader>gf', require('telescope.builtin').git_files, desc = 'Find Git Files' },
+      },
+    },
+    config = function()
+      -- [[ Configure Telescope ]]
+      -- See `:help telescope` and `:help telescope.setup()`
+      require('telescope').setup {
+        defaults = {
+          mappings = {
+            i = {
+              ['<C-u>'] = false,
+              ['<C-d>'] = false,
+            },
           },
         },
-      },
-    }
-  end,
+      }
+    end,
   },
   {
     -- makes telescope faster
@@ -29,22 +34,20 @@ return {
     config = function()
       -- Enable telescope fzf native, if installed
       pcall(require('telescope').load_extension, 'fzf')
-    end
+    end,
   },
   {
     'nvim-telescope/telescope-ui-select.nvim',
     config = function()
       -- This is your opts table
-      require("telescope").setup {
+      require('telescope').setup {
         extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown {
-            }
-          }
-        }
+          ['ui-select'] = {
+            require('telescope.themes').get_dropdown {},
+          },
+        },
       }
-      require("telescope").load_extension("ui-select")
-    end
-  }
-
+      require('telescope').load_extension 'ui-select'
+    end,
+  },
 }

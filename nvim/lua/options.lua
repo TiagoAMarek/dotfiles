@@ -53,6 +53,9 @@ vim.g.icons_enabled = true -- disable icons in the UI (disable if no nerd font i
 
 vim.cmd [[ set noswapfile ]]
 
+vim.diagnostic.config {
+  float = { border = 'rounded' },
+}
 -- Copilot
 -- vim.g.copilot_no_tab_map = true
 -- vim.g.copilot_assume_mapped = true
