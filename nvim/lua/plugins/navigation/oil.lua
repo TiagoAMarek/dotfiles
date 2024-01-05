@@ -4,7 +4,7 @@ return {
   enabled = true,
   cmd = "Oil",
   keys = {
-    { "<leader>e", function() require("oil").open() end, desc = "Open folder in Oil" },
+    { "<leader>fo", function() require("oil").open() end, desc = "Open folder in Oil" },
   },
   init = function()
     require("oil").setup({
