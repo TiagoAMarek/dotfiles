@@ -17,14 +17,14 @@ return {
     keys = {
       { "<Esc>", function () require("mini.files").close() end },
       {
-        "<leader>o",
+        "<leader>e",
         function()
           require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
         end,
         desc = "Open mini.files (directory of current file)",
       },
       {
-        "<leader>O",
+        "<leader>E",
         function()
           require("mini.files").open(vim.loop.cwd(), true)
         end,

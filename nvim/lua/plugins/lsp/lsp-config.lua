@@ -34,7 +34,7 @@ return {
           -- Use a sub-list to run only the first available formatter
           javascript = { { 'eslint_d', 'eslint' } },
           typescript = { { 'eslint_d', 'eslint' } },
-          json = { { 'eslint_d', 'eslint', 'fixjson' } },
+          json = { { 'eslint_d', 'eslint' } },
         },
       }
 
