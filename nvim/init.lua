@@ -4,9 +4,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-require('install-lazy')
-require('options')
-require('keymaps')
+require 'install-lazy'
+require 'options'
+require 'keymaps'
 
 -- document existing key chains
 require('which-key').register {
@@ -18,7 +18,6 @@ require('which-key').register {
   ['<leader>m'] = { name = 'Messages', _ = 'which_key_ignore' },
   ['<leader>o'] = { name = 'Obsidian', _ = 'which_key_ignore' },
   ['<leader>q'] = { name = 'Diagnostic', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = 'Rename', _ = 'which_key_ignore' },
   ['<leader>s'] = { name = 'Session Manager', _ = 'which_key_ignore' },
   ['<leader>t'] = { name = 'Tests', _ = 'which_key_ignore' },
   ['<leader>u'] = { name = 'Treesitter', _ = 'which_key_ignore' },
