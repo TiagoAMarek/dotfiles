@@ -5,10 +5,13 @@
 
 return {
   {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
     init = function()
-      require("copilot").setup({})
-    end
-  }
+      require('copilot').setup {}
+    end,
+  },
+  {
+    'gptlang/CopilotChat.nvim',
+  },
 }

@@ -1,4 +1,13 @@
 return {
+  {
+    'Wansmer/treesj',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('treesj').setup {--[[ your config ]]
+      }
+      vim.keymap.set('n', '<leader>cm', require('treesj').toggle, { desc = 'Split' })
+    end,
+  },
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
   -- Useful plugin to show you pending keybinds.
@@ -13,6 +22,12 @@ return {
   -- },
   {
     'lambdalisue/suda.vim',
+  },
+  {
+    'karb94/neoscroll.nvim',
+    config = function()
+      require('neoscroll').setup {}
+    end,
   },
   {
     'kylechui/nvim-surround',
