@@ -33,7 +33,7 @@ vim.keymap.set('n', '<leader>gt', function()
 end, { desc = 'Git status' })
 
 -- Search
-vim.keymap.set('n', '<leader>fs', require('telescope.builtin').lsp_document_symbols, { desc = 'Find Symbols' })
+vim.keymap.set('n', '<leader>fs', ":lua require('telescope.builtin').lsp_document_symbols()<CR>", { desc = 'Find Symbols' })
 vim.keymap.set('n', '<leader><space>', ":lua require('telescope.builtin').buffers()<CR>", { desc = 'Find Buffers' })
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Find Files' })
 vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = 'Find Help' })
@@ -47,9 +47,9 @@ end, { desc = '[/] Fuzzily search in current buffer' })
 
 vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = 'Find by Grep' })
 -- vim.keymap.set('n', '<leader>fg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = 'Find by Grep' })
-vim.keymap.set('n', '<leader>fd', function()
-  require('telescope.builtin').find_files { cwd = vim.fn.expand '%:p:h' }
-end, { desc = 'Find in current dir' })
+-- vim.keymap.set('n', '<leader>fd', function()
+--   require('telescope.builtin').find_files { cwd = vim.fn.expand '%:p:h' }
+-- end, { desc = 'Find in current dir' })
 -- vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = 'Find Diagnostics' })
 vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = 'Find Resume' })
 -- vim.keymap.set('n', '<leader>fp', ":lua require'telescope'.extensions.project.project{}<CR>", { desc = 'Projects' })

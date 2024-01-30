@@ -1,3 +1,4 @@
+vim.opt.conceallevel = 1
 -- Set highlight on search
 vim.o.hlsearch = true
 vim.o.relativenumber = true
@@ -9,8 +10,8 @@ vim.o.mouse = 'a'
 
 vim.o.scrolloff = 8 -- cursor distance from top/bottom of page
 
-vim.o.foldenable = true   -- enable fold for nvim-ufo
-vim.o.foldlevel = 99      -- set high foldlevel for nvim-ufo
+vim.o.foldenable = true -- enable fold for nvim-ufo
+vim.o.foldlevel = 99 -- set high foldlevel for nvim-ufo
 vim.o.foldlevelstart = 99 -- start with all code unfolded
 -- vim.o.foldcolumn = nil
 -- Sync clipboard between OS and Neovim.

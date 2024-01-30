@@ -10,6 +10,7 @@ require 'keymaps'
 
 -- document existing key chains
 require('which-key').register {
+  ['<leader>d'] = { name = 'debug' },
   ['<leader>b'] = { name = 'Buffers', _ = 'which_key_ignore' },
   ['<leader>c'] = { name = 'Code', _ = 'which_key_ignore' },
   ['<leader>f'] = { name = 'Find', _ = 'which_key_ignore' },

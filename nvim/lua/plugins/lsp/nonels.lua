@@ -17,7 +17,7 @@ return {
         'prettier', -- prettier formatter
         'shellcheck', -- shell linter
         'stylua', -- lua formatter
-        'tsc', -- typescript diagnostics
+        -- 'tsc', -- typescript diagnostics
         'yamllint', -- yaml linter
       },
     }
@@ -36,17 +36,18 @@ return {
         code_actions.eslint_d,
         code_actions.gitsigns,
         code_actions.refactoring,
-        diagnostics.eslint_d,
-        diagnostics.eslint_d.with { -- js/ts linter
-          condition = function(utils)
-            return utils.root_has_file { '.eslintrc.js', '.eslintrc.cjs' } -- only enable if root has .eslintrc.js or .eslintrc.cjs
-          end,
-        },
+        -- diagnostics.eslint_d,
+        -- diagnostics.eslint_d.with { -- js/ts linter
+        --   condition = function(utils)
+        --     return utils.root_has_file { '.eslintrc.js', '.eslintrc.cjs' } -- only enable if root has .eslintrc.js or .eslintrc.cjs
+        --   end,
+        -- },
         diagnostics.shellcheck,
-        diagnostics.tsc,
+        -- diagnostics.tsc,
         diagnostics.yamllint,
         formatting.beautysh,
-        formatting.prettier,
+        -- formatting.prettier,
+        formatting.eslint_d,
         formatting.stylua,
         formatting.yamlfmt,
       },

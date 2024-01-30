@@ -8,10 +8,10 @@ return {
     'zbirenbaum/copilot.lua',
     cmd = 'Copilot',
     init = function()
-      require('copilot').setup {}
+      require('copilot').setup {
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      }
     end,
-  },
-  {
-    'gptlang/CopilotChat.nvim',
   },
 }

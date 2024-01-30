@@ -28,6 +28,7 @@ return {
     config = function()
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+      local fb_actions = require('telescope').extensions.file_browser.actions
       require('telescope').setup {
         pickers = {
           buffers = vim.tbl_extend('force', dropdown(), {
@@ -60,10 +61,30 @@ return {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown {},
           },
+          file_browser = {
+            theme = 'dropdown',
+            layout_config = {
+              width = 0.8,
+              height = 0.5,
+            },
+            -- disables netrw and use telescope-file-browser in its place
+            hijack_netrw = true,
+            mappings = {
+              ['i'] = {
+                ['<C-b>'] = fb_actions.goto_parent_dir,
+                ['<C-l>'] = fb_actions.open_dir,
+                -- your custom insert mode mappings
+              },
+              ['n'] = {
+                -- your custom normal mode mappings
+              },
+            },
+          },
         },
       }
 
       require('telescope').load_extension 'ui-select'
+      require('telescope').load_extension 'file_browser'
       require('telescope').load_extension 'live_grep_args'
       require('telescope').load_extension 'project'
     end,
@@ -78,6 +99,21 @@ return {
     config = function()
       -- Enable telescope fzf native, if installed
       pcall(require('telescope').load_extension, 'fzf')
+    end,
+  },
+  {
+    'nvim-telescope/telescope-file-browser.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
+    config = function()
+      -- open file_browser
+      vim.api.nvim_set_keymap('n', '<space>b', ':Telescope file_browser grouped=true prompt_path=true<CR>', { noremap = true, desc = 'Browse files' })
+      -- open file_browser with the path of the current buffer
+      vim.api.nvim_set_keymap(
+        'n',
+        '<space>fd',
+        ':Telescope file_browser path=%:p:h select_buffer=true grouped=true prompt_path=true<CR>',
+        { noremap = true, desc = 'Browse files in current dir' }
+      )
     end,
   },
 }

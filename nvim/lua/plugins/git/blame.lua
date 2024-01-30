@@ -1,10 +1,10 @@
 return {
-  "FabijanZulj/blame.nvim",
+  'FabijanZulj/blame.nvim',
   keys = {
     {
-      "<leader>gB",
-      "<cmd>ToggleBlame virtual<cr>",
-      desc = "Toggle Blame",
+      '<leader>gB',
+      '<cmd>ToggleBlame window<cr>',
+      desc = 'Toggle Blame',
     },
   },
 }

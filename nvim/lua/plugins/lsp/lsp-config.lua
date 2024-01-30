@@ -25,7 +25,7 @@ return {
       }
 
       local servers = {
-        -- eslint = {},
+        eslint = {},
         jsonls = {},
         lua_ls = {},
       }
