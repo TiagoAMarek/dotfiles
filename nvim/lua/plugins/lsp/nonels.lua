@@ -15,7 +15,6 @@ return {
         'beautysh', -- shell formatter
         'eslint_d', -- js linter
         'prettier', -- prettier formatter
-        'shellcheck', -- shell linter
         'stylua', -- lua formatter
         -- 'tsc', -- typescript diagnostics
         'yamllint', -- yaml linter
@@ -42,7 +41,6 @@ return {
         --     return utils.root_has_file { '.eslintrc.js', '.eslintrc.cjs' } -- only enable if root has .eslintrc.js or .eslintrc.cjs
         --   end,
         -- },
-        diagnostics.shellcheck,
         -- diagnostics.tsc,
         diagnostics.yamllint,
         formatting.beautysh,

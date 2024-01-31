@@ -17,7 +17,7 @@ require('which-key').register {
   ['<leader>g'] = { name = 'Git', _ = 'which_key_ignore' },
   ['<leader>h'] = { name = 'harpoon', _ = 'which_key_ignore' },
   ['<leader>m'] = { name = 'Messages', _ = 'which_key_ignore' },
-  ['<leader>o'] = { name = 'Obsidian', _ = 'which_key_ignore' },
+  ['<leader>fo'] = { name = 'Obsidian', _ = 'which_key_ignore' },
   ['<leader>q'] = { name = 'Diagnostic', _ = 'which_key_ignore' },
   ['<leader>s'] = { name = 'Session Manager', _ = 'which_key_ignore' },
   ['<leader>t'] = { name = 'Tests', _ = 'which_key_ignore' },

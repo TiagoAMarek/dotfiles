@@ -45,6 +45,7 @@ return {
           grep_string = dropdown(),
           help_tags = dropdown(),
           live_grep = dropdown(),
+          marks = dropdown(),
           oldfiles = dropdown(),
           resume = dropdown(),
         },
