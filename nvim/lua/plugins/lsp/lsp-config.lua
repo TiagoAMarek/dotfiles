@@ -74,7 +74,13 @@ return {
         require('telescope.builtin').lsp_type_definitions { reuse_win = true }
       end, { desc = 'Go to type definition' })
 
-      vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'Go to references' })
+      -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'Go to references' })
+      vim.keymap.set('n', 'gr', function()
+        require('telescope.builtin').lsp_references { reuse_win = true }
+      end, { desc = 'Go to references' })
+      vim.keymap.set('n', 'ds', function()
+        require('telescope.builtin').lsp_document_symbols { reuse_win = true }
+      end, { desc = 'Document Symbols' })
       vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { desc = 'Go to signature help' })
       vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, { desc = 'Rename' })
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action' })

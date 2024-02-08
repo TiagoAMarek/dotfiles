@@ -13,6 +13,7 @@ require('which-key').register {
   ['<leader>d'] = { name = 'debug' },
   ['<leader>b'] = { name = 'Buffers', _ = 'which_key_ignore' },
   ['<leader>c'] = { name = 'Code', _ = 'which_key_ignore' },
+  ['<leader>cc'] = { name = 'Copilot', _ = 'which_key_ignore' },
   ['<leader>f'] = { name = 'Find', _ = 'which_key_ignore' },
   ['<leader>g'] = { name = 'Git', _ = 'which_key_ignore' },
   ['<leader>h'] = { name = 'harpoon', _ = 'which_key_ignore' },

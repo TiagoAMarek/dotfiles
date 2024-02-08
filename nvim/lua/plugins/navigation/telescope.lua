@@ -3,7 +3,7 @@ local actions = require 'telescope.actions'
 local dropdown = function()
   return require('telescope.themes').get_dropdown {
     layout_config = {
-      width = 0.8,
+      width = 0.9,
       height = 0.5,
     },
   }
@@ -42,9 +42,14 @@ return {
           }),
           diagnostics = dropdown(),
           find_files = dropdown(),
+          git_files = dropdown(),
           grep_string = dropdown(),
           help_tags = dropdown(),
           live_grep = dropdown(),
+          lsp_definitions = dropdown(),
+          lsp_implementations = dropdown(),
+          lsp_references = dropdown(),
+          lsp_type_definitions = dropdown(),
           marks = dropdown(),
           oldfiles = dropdown(),
           resume = dropdown(),
