@@ -1,14 +1,5 @@
 local actions = require 'telescope.actions'
 
-local dropdown = function()
-  return require('telescope.themes').get_dropdown {
-    layout_config = {
-      width = 0.9,
-      height = 0.5,
-    },
-  }
-end
-
 return {
   {
     -- Fuzzy Finder (files, lsp, etc)
@@ -31,7 +22,7 @@ return {
       local fb_actions = require('telescope').extensions.file_browser.actions
       require('telescope').setup {
         pickers = {
-          buffers = vim.tbl_extend('force', dropdown(), {
+          buffers = {
             show_all_buffers = true,
             sort_mru = true,
             mappings = {
@@ -39,22 +30,17 @@ return {
                 ['<c-d>'] = 'delete_buffer',
               },
             },
-          }),
-          diagnostics = dropdown(),
-          find_files = dropdown(),
-          git_files = dropdown(),
-          grep_string = dropdown(),
-          help_tags = dropdown(),
-          live_grep = dropdown(),
-          lsp_definitions = dropdown(),
-          lsp_implementations = dropdown(),
-          lsp_references = dropdown(),
-          lsp_type_definitions = dropdown(),
-          marks = dropdown(),
-          oldfiles = dropdown(),
-          resume = dropdown(),
+          },
         },
         defaults = {
+          layout_strategy = 'vertical',
+          layout_config = {
+            prompt_position = 'top',
+            width = 0.9,
+            height = 0.9,
+          },
+          sorting_strategy = 'ascending',
+
           mappings = {
             i = {
               ['<esc>'] = actions.close,
@@ -68,11 +54,6 @@ return {
             require('telescope.themes').get_dropdown {},
           },
           file_browser = {
-            theme = 'dropdown',
-            layout_config = {
-              width = 0.8,
-              height = 0.5,
-            },
             -- disables netrw and use telescope-file-browser in its place
             hijack_netrw = true,
             mappings = {

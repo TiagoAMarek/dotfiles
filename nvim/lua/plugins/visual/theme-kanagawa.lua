@@ -8,6 +8,7 @@ return {
     name = 'kanagawa',
     -- opts = { integrations = { mini = true } },
     priority = 1000,
+    lazy = false,
     config = function()
       require('kanagawa').setup {
         compile = false, -- enable compiling the colorscheme

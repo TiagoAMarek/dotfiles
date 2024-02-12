@@ -41,6 +41,6 @@ return {
         end
       end,
     })
-    vim.opt.sessionoptions:append 'localoptions' -- Save localoptions to session file
+    -- vim.opt.sessionoptions:append 'localoptions' -- Save localoptions to session file
   end,
 }

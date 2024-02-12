@@ -6,6 +6,13 @@ return {
     -- Credit: glepnir
     local lualine = require 'lualine'
 
+    lualine.setup {
+      options = {
+        -- ... your lualine config
+        theme = 'tokyonight',
+        -- ... your lualine config
+      },
+    }
     -- Color table for highlights
     -- stylua: ignore
     local colors = {
