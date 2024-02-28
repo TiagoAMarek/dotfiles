@@ -25,6 +25,7 @@ return {
     local lspkind = require 'lspkind'
     -- local lsp_zero = require 'lsp-zero'
 
+    require('copilot_cmp').setup()
     require('luasnip.loaders.from_vscode').lazy_load()
     luasnip.config.setup {}
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -77,10 +78,15 @@ return {
       },
       sources = {
         -- Copilot Source
-        { name = 'copilot', group_index = 2 },
         { name = 'nvim_lsp', group_index = 2 },
+        { name = 'buffer', max_item_count = 5 }, -- text within current buffer
+        { name = 'copilot', group_index = 2 },
         { name = 'luasnip', group_index = 2 },
         { name = 'nvim_lua', group_index = 2 },
+      },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
       },
     }
   end,

@@ -76,11 +76,11 @@ return {
     }
     require('reactive').setup {
       builtin = {
-        -- cursorline = true,
-        -- cursor = true,
+        cursorline = true,
+        cursor = true,
         modemsg = true,
       },
-      load = { 'kanagawa' },
+      -- load = { 'kanagawa' },
     }
   end,
 }

@@ -1,5 +1,7 @@
 return {
   'nvimtools/none-ls.nvim',
+  event = { 'BufReadPost' },
+  cmd = { 'LspInfo', 'LspInstall', 'LspUninstall', 'Mason' },
   dependencies = {
     'jay-babu/mason-null-ls.nvim',
     'nvim-lua/plenary.nvim',
@@ -69,11 +71,5 @@ return {
         end
       end,
     }
-
-    vim.api.nvim_create_user_command('NullLsToggle', function()
-      -- you can also create commands to disable or enable sources
-      require('null-ls').toggle {}
-    end, {})
-    -- null_ls.enable({ name = "eslint_d", method = null_ls.methods.DIAGNOSTICS })
   end,
 }

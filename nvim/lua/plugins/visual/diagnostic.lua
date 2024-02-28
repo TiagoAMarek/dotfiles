@@ -8,7 +8,12 @@ return {
     'folke/trouble.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     cmd = { 'TroubleToggle', 'Trouble' },
-    opts = { use_diagnostic_signs = true },
+    opts = {
+      auto_open = true,
+      auto_close = true,
+      position = 'right',
+      use_diagnostic_signs = true,
+    },
     keys = {
       { '<leader>qx', '<cmd>TroubleToggle document_diagnostics<cr>', desc = 'Document Diagnostics (Trouble)' },
       { '<leader>qX', '<cmd>TroubleToggle workspace_diagnostics<cr>', desc = 'Workspace Diagnostics (Trouble)' },
