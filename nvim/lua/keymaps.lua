@@ -16,9 +16,10 @@ vim.keymap.set('n', '|', '<cmd>vsplit<cr>', { desc = 'Vertical Split' })
 vim.keymap.set('n', '\\', '<cmd>split<cr>', { desc = 'Horizontal Split' })
 
 -- Git
-vim.keymap.set('n', '<leader>gg', function()
+vim.keymap.set('n', '<leader>gg', ':<cmd>Git<cr><cr>', { desc = 'Fugitive' })
+vim.keymap.set('n', '<leader>gl', function()
   require('lazygit').lazygit()
-end, { desc = 'Git branches' })
+end, { desc = 'Lazygit' })
 vim.keymap.set('n', '<leader>gb', function()
   require('telescope.builtin').git_branches { use_file_path = true }
 end, { desc = 'Git branches' })

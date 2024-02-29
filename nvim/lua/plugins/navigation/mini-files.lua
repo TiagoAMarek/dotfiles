@@ -53,6 +53,14 @@ return {
         require('mini.files').refresh { content = { filter = new_filter } }
       end
 
+      -- Add relative numbers to the mini.files window
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'MiniFilesWindowUpdate',
+        callback = function(args)
+          vim.wo[args.data.win_id].relativenumber = true
+        end,
+      })
+
       vim.api.nvim_create_autocmd('User', {
         pattern = 'MiniFilesBufferCreate',
         callback = function(args)

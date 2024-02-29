@@ -5,7 +5,12 @@ local get_file_name = function(props)
     return '[No Name]'
   end
 
-  return filename:gsub(vim.fn.getcwd(), '')
+  -- Get current working directory
+  local cwd = vim.fn.getcwd()
+
+  local relative = vim.fn.fnamemodify(filename, ':~:.')
+  -- Return filename relative to cwd
+  return relative
 end
 
 return {
