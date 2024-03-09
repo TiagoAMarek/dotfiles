@@ -1,15 +1,28 @@
--- return {
---   "github/copilot.vim",
---   cmd = "Copilot"
--- }
+-- return
 
 return {
+  -- {
+  --   "github/copilot.vim",
+  --   cmd = "Copilot"
+  -- },
   {
     'zbirenbaum/copilot.lua',
     event = 'InsertEnter',
     config = function()
-      require('copilot').setup {}
+      require('copilot').setup {
+        panel = {
+          enabled = true,
+          auto_refresh = true,
+          layout = {
+            position = 'right', -- | top | left | right
+            ratio = 0.4,
+          },
+        },
+      }
     end,
+    keys = {
+      { '<leader>ccp', '<cmd>Copilot panel<cr>', desc = 'Copilot - Suggestions panel' },
+    },
   },
   {
     'CopilotC-Nvim/CopilotChat.nvim',

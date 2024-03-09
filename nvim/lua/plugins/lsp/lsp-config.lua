@@ -26,9 +26,10 @@ return {
 
       local servers = {
         eslint = {},
-        quick_lint_js = {},
+        gopls = {},
         jsonls = {},
         lua_ls = {},
+        quick_lint_js = {},
       }
 
       local mason_lspconfig = require 'mason-lspconfig'

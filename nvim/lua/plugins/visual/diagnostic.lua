@@ -1,4 +1,10 @@
 return {
+  -- quick fix for json and yaml
+  {
+    'gennaro-tedesco/nvim-jqx',
+    ft = { 'json', 'yaml' },
+  },
+  -- Show diagnoteic in the right top corner
   {
     'dgagn/diagflow.nvim',
     -- event = 'LspAttach', This is what I use personnally and it works great
@@ -9,9 +15,8 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     cmd = { 'TroubleToggle', 'Trouble' },
     opts = {
-      auto_open = true,
+      auto_open = false,
       auto_close = true,
-      position = 'right',
       use_diagnostic_signs = true,
     },
     keys = {
