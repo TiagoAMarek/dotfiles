@@ -12,8 +12,8 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set('n', '<C-s>', '<cmd>w<cr>', { desc = 'Write' })
 
 -- Pane split
--- vim.keymap.set('n', '|', '<cmd>vsplit<cr>', { desc = 'Vertical Split' })
--- vim.keymap.set('n', '\\', '<cmd>split<cr>', { desc = 'Horizontal Split' })
+vim.keymap.set('n', '|', '<cmd>vsplit<cr>', { desc = 'Vertical Split' })
+vim.keymap.set('n', '\\', '<cmd>split<cr>', { desc = 'Horizontal Split' })
 
 -- Git
 vim.keymap.set('n', '<leader>gg', ':<cmd>Git<cr><cr>', { desc = 'Fugitive' })

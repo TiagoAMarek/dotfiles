@@ -81,6 +81,22 @@ return {
 
             -- Noice
             NoicePopupmenuBorder = { fg = theme.ui.fg, bg = 'none' },
+
+            -- Glance Preview
+            GlancePreviewNormal = { fg = theme.ui.fg, bg = theme.ui.bg_m1 },
+            GlancePreviewMatch = { fg = theme.ui.fg_reverse, bg = theme.vcs.changed },
+
+            -- Glance List
+            GlanceListCount = { fg = theme.syn.regex, bg = 'none' },
+            GlanceListFilename = { fg = theme.syn.string, bg = 'none' },
+            GlanceListMatch = { fg = theme.ui.fg_reverse, bg = theme.vcs.changed },
+            GlanceListNormal = { fg = theme.ui.fg, bg = theme.ui.bg_m2 },
+            glanceListFilepath = { fg = theme.syn.type, bg = 'none' },
+
+            -- Glance Preview
+            GlanceWinbarFilename = { fg = theme.syn.string, bg = theme.ui.bg_m3 },
+            GlanceWinbarFilepath = { fg = theme.syn.type, bg = theme.ui.bg_m3 },
+            GlanceWinBarTitle = { fg = theme.syn.special1, bg = theme.ui.bg_m3 },
           }
         end,
       }

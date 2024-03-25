@@ -3,6 +3,7 @@ return {
   event = { 'BufReadPost' },
   cmd = { 'LspInfo', 'LspInstall', 'LspUninstall', 'Mason' },
   dependencies = {
+    'nvimtools/none-ls-extras.nvim',
     'jay-babu/mason-null-ls.nvim',
     'nvim-lua/plenary.nvim',
   },
@@ -14,11 +15,10 @@ return {
 
     mason_null_ls.setup {
       ensure_installed = {
-        'beautysh', -- shell formatter
+        'biome',
         'eslint_d', -- js linter
         'prettier', -- prettier formatter
         'stylua', -- lua formatter
-        -- 'tsc', -- typescript diagnostics
         'yamllint', -- yaml linter
       },
     }
@@ -34,20 +34,11 @@ return {
       root_dir = null_ls_utils.root_pattern('.null-ls-root', 'Makefile', '.git', 'package.json'),
 
       sources = {
-        code_actions.eslint_d,
+        require 'none-ls.code_actions.eslint_d',
+        require 'none-ls.formatting.eslint_d',
         code_actions.gitsigns,
         code_actions.refactoring,
-        -- diagnostics.eslint_d,
-        -- diagnostics.eslint_d.with { -- js/ts linter
-        --   condition = function(utils)
-        --     return utils.root_has_file { '.eslintrc.js', '.eslintrc.cjs' } -- only enable if root has .eslintrc.js or .eslintrc.cjs
-        --   end,
-        -- },
-        -- diagnostics.tsc,
         diagnostics.yamllint,
-        formatting.beautysh,
-        -- formatting.prettier,
-        formatting.eslint_d,
         formatting.stylua,
         formatting.yamlfmt,
       },
