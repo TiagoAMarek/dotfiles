@@ -5,9 +5,6 @@ local get_file_name = function(props)
     return '[No Name]'
   end
 
-  -- Get current working directory
-  local cwd = vim.fn.getcwd()
-
   local relative = vim.fn.fnamemodify(filename, ':~:.')
   -- Return filename relative to cwd
   return relative
@@ -23,6 +20,9 @@ return {
       window = {
         padding = 0,
         margin = { horizontal = 0 },
+      },
+      hide = {
+        cursorline = true,
       },
       render = function(props)
         local filename = get_file_name(props)

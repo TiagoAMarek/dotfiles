@@ -97,6 +97,14 @@ return {
             GlanceWinbarFilename = { fg = theme.syn.string, bg = theme.ui.bg_m3 },
             GlanceWinbarFilepath = { fg = theme.syn.type, bg = theme.ui.bg_m3 },
             GlanceWinBarTitle = { fg = theme.syn.special1, bg = theme.ui.bg_m3 },
+
+            IlluminatedWordText = { fg = 'none', bg = theme.ui.bg_p2 },
+            IlluminatedWordRead = { fg = 'none', bg = theme.ui.bg_p2 },
+            IlluminatedWordWrite = { fg = 'none', bg = theme.ui.bg_p2 },
+
+            ModesCopy = { fg = 'none', bg = theme.diag.warning },
+            ModesInsert = { fg = 'none', bg = theme.diag.ok },
+            ModesDelete = { fg = 'none', bg = theme.diag.error },
           }
         end,
       }

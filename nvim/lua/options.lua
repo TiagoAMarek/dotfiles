@@ -1,4 +1,4 @@
-vim.opt.conceallevel = 1
+-- vim.opt.conceallevel = 1
 -- Set highlight on search
 vim.o.hlsearch = true
 vim.o.relativenumber = true

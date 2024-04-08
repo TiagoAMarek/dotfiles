@@ -20,7 +20,7 @@ require('which-key').register {
   ['<leader>m'] = { name = 'Messages', _ = 'which_key_ignore' },
   ['<leader>fo'] = { name = 'Obsidian', _ = 'which_key_ignore' },
   ['<leader>q'] = { name = 'Diagnostic', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = 'Screen', _ = 'which_key_ignore' },
+  ['<leader>s'] = { name = 'Session', _ = 'which_key_ignore' },
   ['<leader>t'] = { name = 'Tests', _ = 'which_key_ignore' },
   ['<leader>u'] = { name = 'Treesitter', _ = 'which_key_ignore' },
 }
