@@ -1,4 +1,5 @@
 -- [[ Basic Keymaps ]]
+vim.keymap.set('n', '<leader>x', '<C-w>q', { desc = 'Close window' })
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -47,8 +48,8 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
-vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = 'Find by Grep' })
--- vim.keymap.set('n', '<leader>fg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = 'Find by Grep' })
+vim.keymap.set('n', '<leader>fG', require('telescope.builtin').live_grep, { desc = 'Find by Grep' })
+vim.keymap.set('n', '<leader>fg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = 'Find by Grep' })
 -- vim.keymap.set('n', '<leader>fd', function()
 --   require('telescope.builtin').find_files { cwd = vim.fn.expand '%:p:h' }
 -- end, { desc = 'Find in current dir' })

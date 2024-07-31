@@ -20,10 +20,9 @@ return {
       use_diagnostic_signs = true,
     },
     keys = {
-      { '<leader>qx', '<cmd>TroubleToggle document_diagnostics<cr>', desc = 'Document Diagnostics (Trouble)' },
-      { '<leader>qX', '<cmd>TroubleToggle workspace_diagnostics<cr>', desc = 'Workspace Diagnostics (Trouble)' },
-      { '<leader>qL', '<cmd>TroubleToggle loclist<cr>', desc = 'Location List (Trouble)' },
-      { '<leader>qQ', '<cmd>TroubleToggle quickfix<cr>', desc = 'Quickfix List (Trouble)' },
+      { '<leader>qx', '<cmd>Trouble diagnostics<cr>', desc = 'Document Diagnostics (Trouble)' },
+      { '<leader>qL', '<cmd>Trouble loclist<cr>', desc = 'Location List (Trouble)' },
+      { '<leader>qQ', '<cmd>Trouble quickfix<cr>', desc = 'Quickfix List (Trouble)' },
       -- {
       --   '[d',
       --   function()

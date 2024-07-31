@@ -9,20 +9,18 @@ require 'options'
 require 'keymaps'
 
 -- document existing key chains
-require('which-key').register {
-  ['<leader>d'] = { name = 'debug' },
-  ['<leader>b'] = { name = 'Buffers', _ = 'which_key_ignore' },
-  ['<leader>c'] = { name = 'Code', _ = 'which_key_ignore' },
-  ['<leader>cc'] = { name = 'Copilot', _ = 'which_key_ignore' },
-  ['<leader>f'] = { name = 'Find', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = 'Git', _ = 'which_key_ignore' },
-  ['<leader>h'] = { name = 'harpoon', _ = 'which_key_ignore' },
-  ['<leader>m'] = { name = 'Messages', _ = 'which_key_ignore' },
-  ['<leader>fo'] = { name = 'Obsidian', _ = 'which_key_ignore' },
-  ['<leader>q'] = { name = 'Diagnostic', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = 'Session', _ = 'which_key_ignore' },
-  ['<leader>t'] = { name = 'Tests', _ = 'which_key_ignore' },
-  ['<leader>u'] = { name = 'Treesitter', _ = 'which_key_ignore' },
+require('which-key').add {
+  { '<leader>d', group = 'debug' },
+  { '<leader>b', group = 'Buffers' },
+  { 'leader>c', group = 'Code' },
+  { 'leader>cc', group = 'Copilot' },
+  { '<leader>f', group = 'Find' }, -- group
+  { '<leader>g', group = 'Git' },
+  { 'leader>h', group = 'harpoon' },
+  { 'leader>m', group = 'Messages' },
+  { 'leader>q', group = 'Diagnostic' },
+  { 'leader>s', group = 'Session' },
+  { 'leader>u', group = 'Treesitter' },
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`

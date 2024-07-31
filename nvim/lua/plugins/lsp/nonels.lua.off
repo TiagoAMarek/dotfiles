@@ -40,27 +40,47 @@ return {
         code_actions.refactoring,
         diagnostics.yamllint,
         formatting.stylua,
+        formatting.biome.with {
+          filetypes = {
+            'javascript',
+            'javascriptreact',
+            'json',
+            'jsonc',
+            'typescript',
+            'typescriptreact',
+            'css',
+          },
+          args = {
+            'check',
+            '--write',
+            '--unsafe',
+            '--formatter-enabled=true',
+            '--organize-imports-enabled=true',
+            '--skip-errors',
+            '--stdin-file-path=$FILENAME',
+          },
+        },
         formatting.yamlfmt,
       },
       -- configure format on save
-      on_attach = function(current_client, bufnr)
-        if current_client.supports_method 'textDocument/formatting' then
-          vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
-          vim.api.nvim_create_autocmd('BufWritePre', {
-            group = augroup,
-            buffer = bufnr,
-            callback = function()
-              vim.lsp.buf.format {
-                filter = function(client)
-                  --  only use null-ls for formatting instead of lsp server
-                  return client.name == 'null-ls'
-                end,
-                bufnr = bufnr,
-              }
-            end,
-          })
-        end
-      end,
+      -- on_attach = function(current_client, bufnr)
+      --   if current_client.supports_method 'textDocument/formatting' then
+      --     vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
+      --     vim.api.nvim_create_autocmd('BufWritePre', {
+      --       group = augroup,
+      --       buffer = bufnr,
+      --       callback = function()
+      --         vim.lsp.buf.format {
+      --           filter = function(client)
+      --             --  only use null-ls for formatting instead of lsp server
+      --             return client.name == 'null-ls'
+      --           end,
+      --           bufnr = bufnr,
+      --         }
+      --       end,
+      --     })
+      --   end
+      -- end,
     }
   end,
 }

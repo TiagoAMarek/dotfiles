@@ -26,10 +26,9 @@ return {
 
       local servers = {
         eslint = {},
-        gopls = {},
         jsonls = {},
         lua_ls = {},
-        quick_lint_js = {},
+        -- quick_lint_js = {},
       }
       local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
       capabilities.textDocument.foldingRange = {
@@ -53,6 +52,11 @@ return {
         end,
       }
 
+      -- require('lspconfig')['omnisharp'].setup {
+      --   handlers = {
+      --     ['textDocument/definition'] = require('omnisharp_extended').handler,
+      --   },
+      -- }
       -- vim.api.nvim_create_autocmd('LspAttach', {
       --   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
       --   callback = function(ev)

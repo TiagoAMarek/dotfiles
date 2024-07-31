@@ -24,7 +24,12 @@ return {
       {
         ft = 'Copilot panel',
         title = 'Copilot',
+        pinned = true,
         open = 'Copilot panel',
+      },
+      {
+        ft = 'Outline',
+        open = 'OutlineOpen',
       },
     },
   },
