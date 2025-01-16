@@ -26,7 +26,6 @@ return {
 
       local servers = {
         eslint = {},
-        jsonls = {},
         lua_ls = {},
         -- quick_lint_js = {},
       }
@@ -51,42 +50,6 @@ return {
           }
         end,
       }
-
-      -- require('lspconfig')['omnisharp'].setup {
-      --   handlers = {
-      --     ['textDocument/definition'] = require('omnisharp_extended').handler,
-      --   },
-      -- }
-      -- vim.api.nvim_create_autocmd('LspAttach', {
-      --   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-      --   callback = function(ev)
-      --     -- keymaps
-      --     vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
-      --
-      --     vim.keymap.set('n', 'gd', function()
-      --       require('telescope.builtin').lsp_definitions { reuse_win = true }
-      --     end, { desc = 'Go to definition' })
-      --
-      --     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Go to declaration' })
-      --
-      --     vim.keymap.set('n', 'gi', function()
-      --       require('telescope.builtin').lsp_implementations { reuse_win = true }
-      --     end, { desc = 'Go to implementation' })
-      --
-      --     vim.keymap.set('n', 'go', function()
-      --       require('telescope.builtin').lsp_type_definitions { reuse_win = true }
-      --     end, { desc = 'Go to type definition' })
-      --
-      --     -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'Go to references' })
-      --     vim.keymap.set('n', 'gr', function()
-      --       require('telescope.builtin').lsp_references { reuse_win = true }
-      --     end, { desc = 'Go to references' })
-      --     vim.keymap.set('n', 'ds', function()
-      --       require('telescope.builtin').lsp_document_symbols { reuse_win = true }
-      --     end, { desc = 'Document Symbols' })
-      --     vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { desc = 'Go to signature help' })
-      --   end,
-      -- })
     end,
   },
   {
@@ -123,19 +86,19 @@ return {
         },
         list = {
           position = 'right', -- Position of the list window 'left'|'right'
-          width = 0.33, -- 33% width relative to the active window, min 0.1, max 0.5
+          width = 0.33,       -- 33% width relative to the active window, min 0.1, max 0.5
         },
-        theme = { -- This feature might not work properly in nvim-0.7.2
-          enable = false, -- Will generate colors for the plugin based on your current colorscheme
-          mode = 'auto', -- 'brighten'|'darken'|'auto', 'auto' will set mode based on the brightness of your colorscheme
+        theme = {             -- This feature might not work properly in nvim-0.7.2
+          enable = false,     -- Will generate colors for the plugin based on your current colorscheme
+          mode = 'auto',      -- 'brighten'|'darken'|'auto', 'auto' will set mode based on the brightness of your colorscheme
         },
         mappings = {
           list = {
-            ['j'] = actions.next, -- Bring the cursor to the next item in the list
+            ['j'] = actions.next,     -- Bring the cursor to the next item in the list
             ['k'] = actions.previous, -- Bring the cursor to the previous item in the list
             ['<Down>'] = actions.next,
             ['<Up>'] = actions.previous,
-            ['<Tab>'] = actions.next_location, -- Bring the cursor to the next location skipping groups in the list
+            ['<Tab>'] = actions.next_location,       -- Bring the cursor to the next location skipping groups in the list
             ['<S-Tab>'] = actions.previous_location, -- Bring the cursor to the previous location skipping groups in the list
             ['<C-u>'] = actions.preview_scroll_win(5),
             ['<C-d>'] = actions.preview_scroll_win(-5),

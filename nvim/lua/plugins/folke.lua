@@ -11,7 +11,7 @@ return {
     -- stylua: ignore
     keys = {
       {
-        "<leader>F",
+        "<leader>w",
         mode = { "n", "x", "o" },
         function()
           require("flash").jump()
