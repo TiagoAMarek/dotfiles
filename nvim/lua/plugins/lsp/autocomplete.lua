@@ -3,7 +3,7 @@ return {
   'hrsh7th/nvim-cmp',
   dependencies = {
     -- copilot
-    'zbirenbaum/copilot-cmp',
+    -- 'zbirenbaum/copilot-cmp',
     -- Snippet Engine & its associated nvim-cmp source
     'L3MON4D3/LuaSnip',
     'saadparwaiz1/cmp_luasnip',
@@ -25,7 +25,7 @@ return {
     local lspkind = require 'lspkind'
     -- local lsp_zero = require 'lsp-zero'
 
-    require('copilot_cmp').setup()
+    -- require('copilot_cmp').setup()
     require('luasnip.loaders.from_vscode').lazy_load()
     luasnip.config.setup {}
     local cmp_select = { behavior = cmp.SelectBehavior.Select }

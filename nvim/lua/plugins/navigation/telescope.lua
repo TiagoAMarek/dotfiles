@@ -40,7 +40,9 @@ return {
             height = 0.9,
           },
           sorting_strategy = 'ascending',
-
+          path_display = {
+            "filename_first",
+          },
           mappings = {
             i = {
               ['<esc>'] = actions.close,
@@ -93,7 +95,8 @@ return {
     dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
     config = function()
       -- open file_browser
-      vim.api.nvim_set_keymap('n', '<space>b', ':Telescope file_browser grouped=true prompt_path=true<CR>', { noremap = true, desc = 'Browse files' })
+      vim.api.nvim_set_keymap('n', '<space>b', ':Telescope file_browser grouped=true prompt_path=true<CR>',
+        { noremap = true, desc = 'Browse files' })
       -- open file_browser with the path of the current buffer
       vim.api.nvim_set_keymap(
         'n',

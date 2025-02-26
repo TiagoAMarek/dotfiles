@@ -9,7 +9,7 @@ return {
     bottom = {
       -- toggleterm / lazyterm at the bottom with a height of 40% of the screen
       'Trouble',
-      { ft = 'qf', title = 'QuickFix' },
+      { ft = 'qf',            title = 'QuickFix' },
       {
         ft = 'help',
         size = { height = 20 },
@@ -22,15 +22,24 @@ return {
     },
     left = {
       {
-        ft = 'Copilot panel',
-        title = 'Copilot',
-        pinned = true,
-        open = 'Copilot panel',
-      },
-      {
         ft = 'Outline',
         open = 'OutlineOpen',
       },
+      {
+        ft = 'copilot-chat',
+        open = 'CopilotChat',
+        size = { width = 70 },
+      },
+      {
+        ft = 'fugitive',
+        title = 'Git Fugitive',
+        open = 'Git',
+        size = { width = 70 }
+      },
+      { title = "Neotest Output", ft = "neotest-output-panel", size = { width = 70 } },
+
     },
+    top = {
+    }
   },
 }

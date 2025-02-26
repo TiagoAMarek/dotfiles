@@ -35,7 +35,8 @@ vim.keymap.set('n', '<leader>gt', function()
 end, { desc = 'Git status' })
 
 -- Search
-vim.keymap.set('n', '<leader>fs', ":lua require('telescope.builtin').lsp_document_symbols()<CR>", { desc = 'Find Symbols' })
+vim.keymap.set('n', '<leader>fs', ":lua require('telescope.builtin').lsp_document_symbols()<CR>",
+  { desc = 'Find Symbols' })
 vim.keymap.set('n', '<leader><space>', ":lua require('telescope.builtin').buffers()<CR>", { desc = 'Find Buffers' })
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Find Files' })
 vim.keymap.set('n', '<leader>fm', require('telescope.builtin').marks, { desc = 'Find Marks' })
@@ -48,8 +49,11 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
+vim.keymap.set('n', '<leader>ct', ":%s/js/ts/I<CR>", { desc = 'Replace string JS to TS' })
+
 vim.keymap.set('n', '<leader>fG', require('telescope.builtin').live_grep, { desc = 'Find by Grep' })
-vim.keymap.set('n', '<leader>fg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = 'Find by Grep' })
+vim.keymap.set('n', '<leader>fg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+  { desc = 'Find by Grep' })
 -- vim.keymap.set('n', '<leader>fd', function()
 --   require('telescope.builtin').find_files { cwd = vim.fn.expand '%:p:h' }
 -- end, { desc = 'Find in current dir' })
@@ -71,10 +75,10 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 -- code
 vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, { desc = 'Rename' })
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action' })
-vim.keymap.set('n', '<leader>cf', vim.lsp.buf.format, { desc = 'Format' })
+vim.keymap.set('n', '<leader>cf', function() vim.lsp.buf.format({ timeout_ms = 5000 }) end, { desc = 'Format' })
 
 -- window
-vim.keymap.set('n', '=', [[<cmd>vertical resize +5<cr>]]) -- make the window biger vertically
-vim.keymap.set('n', '-', [[<cmd>vertical resize -5<cr>]]) -- make the window smaller vertically
+vim.keymap.set('n', '=', [[<cmd>vertical resize +5<cr>]])   -- make the window biger vertically
+vim.keymap.set('n', '-', [[<cmd>vertical resize -5<cr>]])   -- make the window smaller vertically
 vim.keymap.set('n', '+', [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
 vim.keymap.set('n', '_', [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
