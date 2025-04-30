@@ -13,7 +13,7 @@ return {
     },
     keys = {
       keys = {
-        { '<leader>gf', require('telescope.builtin').git_files, desc = 'Find Git Files' },
+        -- { '<leader>gf', require('telescope.builtin').git_files, desc = 'Find Git Files' },
       },
     },
     config = function()
@@ -33,7 +33,6 @@ return {
           },
         },
         defaults = {
-          layout_strategy = 'vertical',
           layout_config = {
             prompt_position = 'top',
             width = 0.9,
