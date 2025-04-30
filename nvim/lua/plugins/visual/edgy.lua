@@ -31,6 +31,11 @@ return {
         size = { width = 70 },
       },
       {
+        ft = 'codecompanion',
+        open = 'CodeCompanion',
+        size = { width = 100 },
+      },
+      {
         ft = 'fugitive',
         title = 'Git Fugitive',
         open = 'Git',

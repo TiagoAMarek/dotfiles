@@ -95,32 +95,32 @@ return {
           },
         },
         lualine_x = {
-          {
-            'diagnostics',
-            sources = { 'nvim_diagnostic' },
-            symbols = { error = ' ', warn = ' ', info = ' ' },
-            diagnostics_color = {
-              color_error = { fg = colors.red },
-              color_warn = { fg = colors.yellow },
-              color_info = { fg = colors.cyan },
-            },
-          },
-          {
-            'branch',
-            icon = '',
-            color = { fg = colors.violet, gui = 'bold' },
-          },
-          {
-            'diff',
-            -- Is it me or the symbol for modified us really weird
-            symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
-            diff_color = {
-              added = { fg = colors.green },
-              modified = { fg = colors.orange },
-              removed = { fg = colors.red },
-            },
-            cond = conditions.hide_in_width,
-          },
+          -- {
+          --   'diagnostics',
+          --   sources = { 'nvim_diagnostic' },
+          --   symbols = { error = ' ', warn = ' ', info = ' ' },
+          --   diagnostics_color = {
+          --     color_error = { fg = colors.red },
+          --     color_warn = { fg = colors.yellow },
+          --     color_info = { fg = colors.cyan },
+          --   },
+          -- },
+          -- {
+          --   'branch',
+          --   icon = '',
+          --   color = { fg = colors.violet, gui = 'bold' },
+          -- },
+          -- {
+          --   'diff',
+          --   -- Is it me or the symbol for modified us really weird
+          --   symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
+          --   diff_color = {
+          --     added = { fg = colors.green },
+          --     modified = { fg = colors.orange },
+          --     removed = { fg = colors.red },
+          --   },
+          --   cond = conditions.hide_in_width,
+          -- },
           {
             function()
               return '▊'
@@ -203,17 +203,34 @@ return {
 
     ins_left { 'progress', color = { fg = colors.red, gui = 'bold' } }
 
-    -- ins_left {
-    --   'diagnostics',
-    --   sources = { 'nvim_diagnostic' },
-    --   symbols = { error = ' ', warn = ' ', info = ' ' },
-    --   diagnostics_color = {
-    --     color_error = { fg = colors.red },
-    --     color_warn = { fg = colors.yellow },
-    --     color_info = { fg = colors.cyan },
-    --   },
-    -- }
+    ins_left {
+      'diagnostics',
+      sources = { 'nvim_diagnostic' },
+      symbols = { error = ' ', warn = ' ', info = ' ' },
+      diagnostics_color = {
+        color_error = { fg = colors.red },
+        color_warn = { fg = colors.yellow },
+        color_info = { fg = colors.cyan },
+      },
+    }
 
+    ins_left {
+      'branch',
+      icon = '',
+      color = { fg = colors.violet, gui = 'bold' },
+    }
+
+    ins_left {
+      'diff',
+      -- Is it me or the symbol for modified us really weird
+      symbols = { added = ' ', modified = ' ', removed = ' ' },
+      diff_color = {
+        added = { fg = colors.green },
+        modified = { fg = colors.orange },
+        removed = { fg = colors.red },
+      },
+      cond = conditions.hide_in_width,
+    }
     -- Insert mid section. You can make any number of sections in neovim :)
     -- for lualine it's any number greater then 2
     ins_left {
@@ -258,23 +275,6 @@ return {
       color = { fg = colors.green, gui = 'bold' },
     }
 
-    -- ins_right {
-    --   'branch',
-    --   icon = '',
-    --   color = { fg = colors.violet, gui = 'bold' },
-    -- }
-
-    -- ins_right {
-    --   'diff',
-    --   -- Is it me or the symbol for modified us really weird
-    --   symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
-    --   diff_color = {
-    --     added = { fg = colors.green },
-    --     modified = { fg = colors.orange },
-    --     removed = { fg = colors.red },
-    --   },
-    --   cond = conditions.hide_in_width,
-    -- }
 
     ins_right {
       function()
