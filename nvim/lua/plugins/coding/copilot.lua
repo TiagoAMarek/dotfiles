@@ -1,0 +1,48 @@
+return {
+  {
+    "zbirenbaum/copilot.lua",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        panel = {
+          enabled = true,
+          auto_refresh = true,
+          layout = {
+            position = "right", -- | top | left | right
+            ratio = 0.4,
+          },
+        },
+        suggestion = {
+          enabled = false,
+          -- auto_trigger = false,
+          -- hide_during_completion = true,
+          -- debounce = 75,
+          -- trigger_on_accept = true,
+
+          -- keymap = {
+          --   accept = "<C-l>",
+          --   accept_word = false,
+          --   accept_line = false,
+          --   next = "<C-]>",
+          --   prev = "<C-[>",
+          --   dismiss = "<C-d>",
+          -- },
+        },
+        workspace_folders = {
+          "/Users/tiagomarek/Projects/optimized-cx-du/frontend/cx-monorepo",
+        },
+      })
+    end,
+    keys = {
+      {
+        "<C-\\>",
+        function()
+          require("copilot.panel").open()
+        end,
+        desc = "Copilot: Show panel",
+        mode = { "n", "i" },
+      },
+      { "<leader>ccp", "<cmd>Copilot panel<cr>", desc = "Copilot - Suggestions panel" },
+    },
+  },
+}

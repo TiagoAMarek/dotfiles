@@ -1,0 +1,27 @@
+-- lazy.nvim
+return {
+  "folke/noice.nvim",
+  event = "VeryLazy",
+  opts = {
+    -- disabled
+    -- messages = { enabled = false },
+    -- notify = { enabled = false },
+
+    -- configs
+    -- cmdline = {
+    --   view = "cmdline",
+    -- },
+    ---@type NoicePresets
+    -- presets = {
+    --   lsp_doc_border = true,
+    -- },
+    ---@type NoiceConfigViews
+    views = {
+      mini = {
+        win_options = {
+          winblend = 0,
+        },
+      },
+    },
+  },
+}
