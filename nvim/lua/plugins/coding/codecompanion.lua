@@ -2,6 +2,7 @@ return {
   "ravitemer/codecompanion-history.nvim", -- Save and load conversation history
   {
     "olimorris/codecompanion.nvim",
+    lazy = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -10,7 +11,7 @@ return {
     },
     config = function(_, opts)
       require("codecompanion").setup(opts)
-      require("plugins.codecompanion.utils.extmarks").setup()
+      require("custom.extmarks").setup()
     end,
     init = function()
       require("custom.spinner"):init()
@@ -49,7 +50,8 @@ return {
           },
           adapter = {
             name = "copilot",
-            model = "gpt-4.1",
+            model = "claude-3.5-sonnet",
+            -- model = "gpt-4.1",
           },
           slash_commands = {
             ["buffer"] = {

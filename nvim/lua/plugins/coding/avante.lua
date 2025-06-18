@@ -24,7 +24,7 @@ return {
       cursor_applying_provider = "copilot",
       providers = {
         copilot = {
-          model = "claude-3.7-sonnet",
+          model = "gpt-4o",
         },
       },
       behaviour = {
@@ -32,10 +32,10 @@ return {
         enable_cursor_planning_mode = true, -- enable cursor planning mode!
       },
       selector = {
-        provider = "snacks",
+        provider = "default",
       },
       input = {
-        provider = "snacks",
+        provider = "default",
         provider_opts = {
           -- Additional snacks.input options
           title = "Avante Input",
