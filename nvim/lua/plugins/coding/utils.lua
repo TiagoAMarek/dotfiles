@@ -1,61 +1,5 @@
 return {
   {
-    -- Make sure to set this up properly if you have lazy=true
-    "MeanderingProgrammer/render-markdown.nvim",
-    opts = {
-      file_types = { "markdown", "Avante" },
-    },
-    ft = { "markdown", "Avante" },
-  },
-  -- {
-  --   "OXY2DEV/markview.nvim",
-  --   lazy = false,
-  --   opts = {
-  --     preview = {
-  --       filetypes = { "markdown", "codecompanion" },
-  --       ignore_buftypes = {},
-  --     },
-  --   },
-  -- },
-  {
-    "OXY2DEV/markview.nvim",
-    lazy = false,
-    opts = function()
-      local function conceal_tag(icon, hl_group)
-        return {
-          on_node = { hl_group = hl_group },
-          on_closing_tag = { conceal = "" },
-          on_opening_tag = {
-            conceal = "",
-            virt_text_pos = "inline",
-            virt_text = { { icon .. " ", hl_group } },
-          },
-        }
-      end
-
-      return {
-        html = {
-          container_elements = {
-            ["^buf$"] = conceal_tag("", "CodeCompanionChatVariable"),
-            ["^file$"] = conceal_tag("", "CodeCompanionChatVariable"),
-            ["^help$"] = conceal_tag("󰘥", "CodeCompanionChatVariable"),
-            ["^image$"] = conceal_tag("", "CodeCompanionChatVariable"),
-            ["^symbols$"] = conceal_tag("", "CodeCompanionChatVariable"),
-            ["^url$"] = conceal_tag("󰖟", "CodeCompanionChatVariable"),
-            ["^var$"] = conceal_tag("", "CodeCompanionChatVariable"),
-            ["^tool$"] = conceal_tag("", "CodeCompanionChatTool"),
-            ["^user_prompt$"] = conceal_tag("", "CodeCompanionChatTool"),
-            ["^group$"] = conceal_tag("", "CodeCompanionChatToolGroup"),
-          },
-        },
-        preview = {
-          filetypes = { "markdown", "codecompanion" },
-          ignore_buftypes = {},
-        },
-      }
-    end,
-  },
-  {
     -- support for image pasting
     "HakonHarnes/img-clip.nvim",
     event = "VeryLazy",
@@ -80,13 +24,42 @@ return {
     },
   },
   {
-    "echasnovski/mini.diff", -- Inline and better diff over the default
+    "mcauley-penney/visual-whitespace.nvim",
+    config = true,
+    event = "ModeChanged *:[vV\22]", -- optionally, lazy load on entering visual mode
+    opts = {},
+  },
+  {
+    "dstein64/nvim-scrollview",
     config = function()
-      local diff = require("mini.diff")
-      diff.setup({
-        -- Disabled by default
-        source = diff.gen_source.none(),
+      require("scrollview").setup({
+        -- current_only = true,
+        -- base = "buffer",
+        signs_on_startup = { "all" },
+        latestchange_symbol = "=",
+        diagnostics_error_symbol = "x",
+        diagnostics_warn_symbol = "!",
       })
+
+      require("scrollview.contrib.gitsigns").setup()
     end,
+  },
+  {
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+      "TmuxNavigatorProcessList",
+    },
+    keys = {
+      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+    },
   },
 }

@@ -36,3 +36,58 @@
 -- end
 --
 -- vim.keymap.set("n", "<C-l>", spf, {})
+
+vim.keymap.set("n", "<C-x>", "<cmd>:bdelete<cr>", {})
+
+-- disable find files default keymaps
+vim.keymap.del("n", "<leader>ff")
+vim.keymap.del("n", "<leader>fc")
+vim.keymap.del("n", "<leader>fn")
+vim.keymap.del("n", "<leader>fp")
+vim.keymap.del("n", "<leader>fg")
+vim.keymap.del("n", "<leader>fb")
+vim.keymap.del("n", "<leader>fB")
+vim.keymap.del("n", "<leader>fr")
+vim.keymap.del("n", "<leader>fR")
+vim.keymap.del("n", "<leader>fF")
+vim.keymap.del("n", "<leader>fe")
+vim.keymap.del("n", "<leader>fE")
+vim.keymap.del("n", "<leader>ft")
+vim.keymap.del("n", "<leader>fT")
+
+vim.keymap.set("n", "<leader>w", function()
+  require("snacks.picker").grep()
+end, { desc = "Find word" })
+
+vim.keymap.set("n", "<leader>W", function()
+  require("snacks.picker").grep({ root = false })
+end, { desc = "Find Files" })
+
+vim.keymap.set("n", "<leader>f", function()
+  require("snacks.picker").files()
+end, { desc = "Find Files" })
+
+vim.keymap.set("n", "<leader>F", function()
+  require("snacks.picker").files({ root = false })
+end, { desc = "Find Files (cwd)" })
+
+vim.keymap.set("n", "<leader>e", function()
+  Snacks.explorer({ cwd = LazyVim.root() })
+end, { desc = "Explorer" })
+
+vim.keymap.set("n", "<leader>r", function()
+  require("snacks.picker").recent()
+end, { desc = "Recent" })
+--
+-- vim.keymap.set("n", "<leader>F", function()
+--   require("lazyvim.util").pick("files", { root = false })
+-- end, { desc = "Find Files (cwd)", noremap = true })
+
+vim.keymap.set("n", "<leader>cp", function()
+  require("conform").format({
+    lsp_fallback = true,
+    timeout_ms = 1000,
+    bufnr = 0,
+    formatters = { "prettier" },
+  })
+end, { desc = "Format with Prettier" })
