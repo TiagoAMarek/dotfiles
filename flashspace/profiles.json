@@ -1,0 +1,105 @@
+{
+  "profiles" : [
+    {
+      "id" : "398245C9-B7B1-44E3-AAA1-2DA9ED42C5E6",
+      "name" : "Default",
+      "workspaces" : [
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.google.Chrome",
+              "iconPath" : "/Applications/Google Chrome.app/Contents/Resources/app.icns",
+              "name" : "Google Chrome"
+            }
+          ],
+          "appToFocus" : {
+            "bundleIdentifier" : "com.google.Chrome",
+            "iconPath" : "/Applications/Google Chrome.app/Contents/Resources/app.icns",
+            "name" : "Google Chrome"
+          },
+          "assignAppShortcut" : "opt+shift+g",
+          "display" : "DELL S3422DWG",
+          "id" : "E8161EE5-750A-4E0F-A011-F6380162CA6A",
+          "name" : "Work Browser",
+          "shortcut" : "opt+g",
+          "symbolIconName" : "network"
+        },
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.tinyspeck.slackmacgap",
+              "iconPath" : "/Applications/Slack.app/Contents/Resources/electron.icns",
+              "name" : "Slack"
+            }
+          ],
+          "appToFocus" : {
+            "bundleIdentifier" : "com.tinyspeck.slackmacgap",
+            "iconPath" : "/Applications/Slack.app/Contents/Resources/electron.icns",
+            "name" : "Slack"
+          },
+          "assignAppShortcut" : "opt+shift+s",
+          "display" : "Built-in Retina Display",
+          "id" : "D24FB908-A155-4205-81DA-4099E68EECF0",
+          "name" : "Slack",
+          "shortcut" : "opt+s",
+          "symbolIconName" : "message"
+        },
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.mitchellh.ghostty",
+              "iconPath" : "/Applications/Ghostty.app/Contents/Resources/AppIcon.icns",
+              "name" : "Ghostty"
+            }
+          ],
+          "appToFocus" : {
+            "bundleIdentifier" : "com.mitchellh.ghostty",
+            "iconPath" : "/Applications/Ghostty.app/Contents/Resources/AppIcon.icns",
+            "name" : "Ghostty"
+          },
+          "assignAppShortcut" : "opt+shift+t",
+          "display" : "DELL S3422DWG",
+          "id" : "61C84834-4A0E-42D4-9284-2ECBDF6D1FC8",
+          "name" : "Terminal",
+          "shortcut" : "opt+t",
+          "symbolIconName" : "apple.terminal"
+        },
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.apple.finder",
+              "iconPath" : "/System/Library/CoreServices/Finder.app/Contents/Resources/Finder.icns",
+              "name" : "Finder"
+            }
+          ],
+          "appToFocus" : {
+            "bundleIdentifier" : "com.apple.finder",
+            "iconPath" : "/System/Library/CoreServices/Finder.app/Contents/Resources/Finder.icns",
+            "name" : "Finder"
+          },
+          "assignAppShortcut" : "opt+shift+f",
+          "display" : "Built-in Retina Display",
+          "id" : "7BE5A6B1-4745-4B1A-B145-9E66F0366F22",
+          "name" : "Files",
+          "shortcut" : "opt+f",
+          "symbolIconName" : "folder.fill"
+        },
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "md.obsidian",
+              "iconPath" : "/Applications/Obsidian.app/Contents/Resources/icon.icns",
+              "name" : "Obsidian"
+            }
+          ],
+          "assignAppShortcut" : "opt+shift+o",
+          "display" : "DELL S3422DWG",
+          "id" : "1E64A507-8C65-40BD-B1E1-85CDFAB39452",
+          "name" : "Notes",
+          "shortcut" : "opt+o",
+          "symbolIconName" : "note.text"
+        }
+      ]
+    }
+  ]
+}
