@@ -17,14 +17,21 @@ return {
       -- Only one of these is needed.
       "nvim-telescope/telescope.nvim", -- optional
       "ibhagwan/fzf-lua", -- optional
-      "echasnovski/mini.pick", -- optional
+      "nvim-mini/mini.pick", -- optional
       "folke/snacks.nvim", -- optional
     },
     keys = {
       { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit" },
     },
   },
-  { "akinsho/git-conflict.nvim", version = "*", config = true },
+  {
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    config = true,
+    keys = {
+      { "<leader>gC", "<cmd>GitConflictRefresh<cr>", desc = "Refresh Conflict" },
+    },
+  },
   {
     "sindrets/diffview.nvim",
     config = true,

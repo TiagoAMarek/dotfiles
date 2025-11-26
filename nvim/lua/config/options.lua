@@ -3,6 +3,7 @@
 -- Add any additional options here
 
 vim.o.wrap = true
+vim.o.swapfile = false
 -- vim.diagnostic.config({
 --   float = { border = "rounded" },
 -- })
