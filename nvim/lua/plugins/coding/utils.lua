@@ -24,6 +24,7 @@ return {
   },
   {
     "christoomey/vim-tmux-navigator",
+    enabled = false,
     cmd = {
       "TmuxNavigateLeft",
       "TmuxNavigateDown",
@@ -38,6 +39,18 @@ return {
       { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
       { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+    },
+  },
+  {
+    {
+      "rachartier/tiny-inline-diagnostic.nvim",
+      event = "VeryLazy",
+      priority = 1000,
+      opts = {},
+    },
+    {
+      "neovim/nvim-lspconfig",
+      opts = { diagnostics = { virtual_text = false } },
     },
   },
 }

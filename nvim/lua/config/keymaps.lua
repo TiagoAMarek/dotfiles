@@ -2,7 +2,9 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-vim.keymap.set("n", "<C-x>", "<cmd>:bdelete<cr>", {})
+vim.keymap.set("n", "<leader>bx", "<cmd>:bdelete<cr>", {})
+vim.keymap.set("n", "<leader><tab>q", "<cmd>:tabprevious<cr>", { desc = "Previous Tab" })
+vim.keymap.set("n", "<leader><tab>w", "<cmd>:tabnext<cr>", { desc = "Next Tab" })
 
 vim.keymap.set("n", "<leader>cp", function()
   require("conform").format({
@@ -13,5 +15,5 @@ vim.keymap.set("n", "<leader>cp", function()
   })
 end, { desc = "Format with Prettier" })
 
-vim.keymap.set("n", "<leader>an", "<cmd>Sidekick nes update<cr>", { desc = "NES update" })
-vim.keymap.set("n", "<leader>aN", "<cmd>Sidekick nes toggle<cr>", { desc = "NES toggle" })
+-- vim.keymap.set("n", "<leader>an", "<cmd>Sidekick nes update<cr>", { desc = "NES update" })
+-- vim.keymap.set("n", "<leader>aN", "<cmd>Sidekick nes toggle<cr>", { desc = "NES toggle" })

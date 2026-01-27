@@ -17,6 +17,14 @@ return {
               width = 80,
             },
           },
+          win = {
+            list = {
+              wo = {
+                number = true,
+                relativenumber = true,
+              },
+            },
+          },
         },
       },
     },

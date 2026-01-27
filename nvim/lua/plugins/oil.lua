@@ -10,7 +10,7 @@ return {
   lazy = false,
   keys = {
     {
-      "<leader>i", -- open parent directory
+      "<leader>o", -- open parent directory
       function()
         require("oil").open()
       end,
