@@ -25,9 +25,16 @@
     "session_child_cycle": "ctrl+alt+right",
     "session_child_cycle_reverse": "ctrl+alt+left"
   },
+  "plugin": ["@franlol/opencode-md-table-formatter@0.0.3"],
   "permission": {
     "edit": "ask",
-    "bash": "ask",
+    "bash": {
+      "*": "ask",
+      "grep *": "allow",
+      "find *": "allow",
+      "ls *": "allow",
+      "rg *": "allow"
+    },
     "webfetch": "ask",
     "lsp": "allow"
   },
