@@ -1,19 +1,14 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "opencode",
+  "default_agent": "plan",
   "model": "github-copilot/claude-sonnet-4.5",
   "small_model": "github-copilot/claude-haiku-4.5",
   "share": "disabled",
   "autoupdate": false,
-  "tui": {
-    "scroll_acceleration": {
-      "enabled": true
-    },
-    "diff_style": "auto"
-  },
   "compaction": {
     "auto": true,
-    "prune": true
+    "prune": true,
+    "reserved": 10000
   },
   "server": {
     "port": 4096,
@@ -21,11 +16,10 @@
     "mdns": false,
     "cors": []
   },
-  "keybinds": {
-    "session_child_cycle": "ctrl+alt+right",
-    "session_child_cycle_reverse": "ctrl+alt+left"
-  },
-  "plugin": ["@franlol/opencode-md-table-formatter@0.0.3"],
+  "plugin": [
+    "@franlol/opencode-md-table-formatter@0.0.3",
+    "@tarquinen/opencode-dcp@2.1.8"
+  ],
   "permission": {
     "edit": "ask",
     "bash": {
@@ -33,37 +27,55 @@
       "grep *": "allow",
       "find *": "allow",
       "ls *": "allow",
-      "rg *": "allow"
+      "rg *": "allow",
+      "git status*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "git show*": "allow",
+      "cat *": "allow",
+      "head *": "allow",
+      "tail *": "allow",
+      "git push*": "ask",
+      "git push --force*": "deny",
+      "git push -f*": "deny",
+      "rm *": "ask",
+      "mv *": "ask",
+      "cp -r*": "ask",
+      "npm install*": "ask",
+      "npm uninstall*": "ask",
+      "yarn install*": "ask",
+      "yarn add*": "ask",
+      "yarn remove*": "ask",
+      "pnpm install*": "ask",
+      "pnpm add*": "ask",
+      "pnpm remove*": "ask",
+      "aws *": "ask",
+      "gcloud *": "ask",
+      "az *": "ask",
+      "terraform apply*": "ask",
+      "terraform destroy*": "ask",
+      "sudo *": "ask",
+      "chmod *": "ask",
+      "chown *": "ask",
+      "systemctl *": "ask",
+      "service *": "ask"
     },
     "webfetch": "ask",
     "lsp": "allow"
-  },
-  "agent": {
-    "commit": {
-      "description": "Compose commit messages following the Commitizen convention",
-      "mode": "subagent",
-      "model": "github-copilot/gpt-5-mini",
-      "prompt": "You are a meticulous commit message authoring agent specializing in the Commitizen convention. Your task is to generate concise, clear, and convention-compliant commit messages for code changes.",
-      "tools": {
-        "bash": true
-      }
-    },
-    "code-reviewer": {
-      "description": "Reviews code for best practices and potential issues",
-      "mode": "subagent",
-      "model": "github-copilot/claude-sonnet-4.5",
-      "prompt": "You are an expert next.js 14 + Typescript code reviewer. Focus on security, performance, and maintainability.",
-      "permission": {
-        "write": "deny",
-        "edit": "deny"
-      }
-    }
   },
   "mcp": {
     "playwright": {
       "type": "local",
       "command": ["npx", "@playwright/mcp@latest"],
       "enabled": true
+    },
+    "Figma": {
+      "url": "https://mcp.figma.com/mcp",
+      "type": "remote",
+      "oauth": {
+        "clientId": "Qcbs5uor89FXC4SG5S7fdH",
+        "clientSecret": "ESVbDHjdBgp00Pw9OBOvguVXwS6sOA"
+      }
     }
   },
   "watcher": {
@@ -75,7 +87,24 @@
       "*.log",
       ".next/**",
       ".turbo/**",
-      "coverage/**"
+      "coverage/**",
+      "**/*.min.js",
+      "**/*.map",
+      ".cache/**",
+      "tmp/**",
+      "temp/**",
+      ".opencode/**",
+      "**/.DS_Store",
+      "**/thumbs.db",
+      "**/*.swp",
+      "**/*.swo",
+      "**/*~",
+      ".vscode/**",
+      ".idea/**",
+      "*.lock",
+      "yarn.lock",
+      "package-lock.json",
+      "pnpm-lock.yaml"
     ]
   }
 }
