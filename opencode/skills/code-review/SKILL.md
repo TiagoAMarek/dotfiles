@@ -67,7 +67,15 @@ find packages -name "AGENTS.md" -type f 2>/dev/null  # For monorepos
 - Check for `next.config.js` (Next.js), `tsconfig.json` (TypeScript)
 - Look at imports in code being reviewed
 
-**When you need detailed discovery guidance**, load `references/project-standards-guide.md`.
+**Common Discovery Issues**:
+- **AGENTS.md contradicts itself**: Report to user, ask which rule takes priority, cite both locations
+- **Multiple AGENTS.md files conflict**: `.opencode/` wins over root, cite both in review comments
+- **No standards found**: Fall back to framework best practices only, note in review that project lacks documented standards
+- **Unclear severity keywords**: Default to "Important" category and explain your reasoning
+
+**MANDATORY when reviewing a new project for the first time**: Before proceeding with the review, you MUST read [`references/project-standards-guide.md`](references/project-standards-guide.md) completely from start to finish. **Do NOT set range limits when reading this file.**
+
+**Do NOT load** other reference files unless specifically needed (see triggers below).
 
 ### Phase 2: Systematic Review
 
@@ -78,32 +86,32 @@ Review in this order:
 - Cite AGENTS.md with file path and line numbers
 - This takes priority over everything else
 
-**2. Security**
-- Input validation before use
-- Environment variables (client vs server-only)
-- Authentication/authorization checks
-- No secrets in code
+**2. Security** - Context-specific validation patterns:
+- **User-uploaded filenames**: Check for path traversal (`../`, absolute paths)
+- **Search queries**: SQL injection risk if building raw queries (use parameterized)
+- **Display text**: XSS risk—sanitize before innerHTML, safe in JSX text nodes
+- **Environment variables**: `NEXT_PUBLIC_*` exposed to browser, `process.env.*` server-only in Server Components but leaked in Client Components
+- **Authentication**: Verify on server (API routes, Server Components), never trust client-side checks
 
-**3. Performance**
-- Unnecessary React rerenders (missing memo, wrong deps)
-- N+1 database queries
-- Large Client Components in Next.js
-- Missing pagination
+**3. Performance** - Impact-based prioritization:
+- **Critical** (user-visible): N+1 queries (causes timeouts), missing pagination (browser crash on large datasets), large Client Components (slow hydration)
+- **Important** (cumulative): Unnecessary rerenders from missing memo/useCallback, wrong useEffect deps causing extra fetches
+- **Consider**: Inline styles (prevents optimization), large bundle imports (use dynamic imports for >100KB)
 
-**4. Maintainability**
-- Type safety (no `any` types)
-- Test coverage for new functionality
-- Clear variable/function names
-- Error handling
+**4. Maintainability** - Future developer experience:
+- **Type safety**: `any` types hide bugs—use `unknown` with type guards; exported functions need explicit return types
+- **Test coverage**: New logic paths need tests (not just happy path—test error cases)
+- **Clarity signals**: Variable names reveal intent (`userData` vs `data`), function names are verbs (`fetchUser` not `user`)
+- **Error handling**: User-facing errors hide details, logs include context (user ID, timestamp)
 
 **5. Framework-Specific**
 - Next.js: Server vs Client Components, data fetching patterns
 - React: Hook dependency arrays, effect cleanup
 - TypeScript: Proper type guards, generic usage
 
-**For comprehensive checklists**, load `references/review-categories.md`.
+**ONLY when encountering complex framework-specific issues or edge cases**: Load [`references/framework-specifics.md`](references/framework-specifics.md) for expert patterns. **Do NOT load** for straightforward framework usage.
 
-**For framework expert patterns**, load `references/framework-specifics.md`.
+**ONLY when you need comprehensive checklists across all review categories**: Load [`references/review-categories.md`](references/review-categories.md). **Do NOT load** this for typical reviews—the guidance above is sufficient.
 
 ### Phase 3: Categorize & Report
 
@@ -189,15 +197,15 @@ Review in this order:
 
 ## Reference Files
 
-When you need detailed guidance, load these on-demand:
+When you need detailed guidance, load these on-demand with embedded triggers:
 
-| Scenario | File | When to Load |
-|----------|------|--------------|
-| First time in project, need AGENTS.md discovery details | `references/project-standards-guide.md` | MANDATORY when reviewing new project |
-| Need comprehensive checklists for all categories | `references/review-categories.md` | Complex reviews, unsure what to check |
-| Need framework expert patterns and anti-patterns | `references/framework-specifics.md` | Reviewing Next.js/React/TypeScript code |
+| Scenario | File | Loading Trigger |
+|----------|------|-----------------|
+| First time reviewing a new project | `references/project-standards-guide.md` | **MANDATORY** (see Phase 1 above) |
+| Complex framework-specific issues or edge cases | `references/framework-specifics.md` | **ONLY** when standard guidance insufficient |
+| Need comprehensive checklists for all categories | `references/review-categories.md` | **ONLY** when typical review process unclear |
 
-**Most reviews need only this SKILL.md**—reference files are for deep dives.
+**Most reviews need only this SKILL.md**—reference files are for deep dives and edge cases.
 
 ## Quick Checklist
 

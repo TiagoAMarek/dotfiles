@@ -50,42 +50,106 @@ Effective PR review combines context and code quality:
 - Repository is not on GitHub (use git commands + code-review skill)
 - gh CLI is not available or can't be installed
 
+## PR Review Mindset
+
+Before executing the workflow, establish the right mindset:
+
+### Decision Framework: Is This PR Reviewable?
+
+Ask these questions IN ORDER:
+
+**1. Quality Gate: Does the PR meet basic standards?**
+- ✅ CI passing → Proceed
+- ❌ CI failing → STOP, show error, request fixes
+- ⏳ CI pending → Wait or ask user if they want to proceed
+
+**2. Scope Gate: Is the size appropriate?**
+- <500 lines → Standard review
+- 500-1000 lines → Flag as large, proceed with focus
+- >1000 lines → STOP, request user confirmation or suggest splitting
+
+**3. Context Gate: Can I understand the purpose?**
+- ✅ Clear description → Proceed
+- ⚠️ Vague description → Request clarification first
+- ❌ No description or "fix" → STOP, request proper description
+
+### Decision Framework: What's the Risk Level?
+
+Adjust review depth based on risk:
+
+| Risk Level | Indicators | Review Approach |
+|------------|------------|-----------------|
+| **Critical** | Security, auth, payments, data migration, breaking changes | Deep review required. Flag ALL concerns. Do not approve without addressing critical items. |
+| **High** | Core business logic, new features, database changes | Thorough review. Focus on correctness, edge cases, tests. |
+| **Medium** | Refactoring, utilities, non-critical features | Standard review. Check maintainability, performance. |
+| **Low** | Docs, tests, minor fixes, formatting | Quick review. Sanity check only. |
+
+### Decision Framework: What's My Review Goal?
+
+Different goals require different approaches:
+
+**Goal: Block Merge (gatekeeper)**
+- Focus ONLY on critical/important issues
+- Don't nitpick style or minor suggestions
+- Clear criteria: "Fix X, Y, Z then approve"
+
+**Goal: Improve Code Quality (mentor)**
+- Include minor suggestions
+- Explain WHY, not just WHAT
+- Offer alternatives, not just criticism
+
+**Goal: Learn (student)**
+- Ask questions about design decisions
+- Request explanations for unfamiliar patterns
+- Don't block merge with learning questions
+
+**Goal: Fast Approval (unblock)**
+- Quick sanity check: Does it work? Tests pass? No obvious issues?
+- Approve if no blocking concerns
+- File follow-up issues for improvements
+
+### Trade-off: Thorough vs Fast Review
+
+**Choose Thorough Review When:**
+- High-risk changes (see risk table above)
+- PR author is new to codebase
+- Area of code has history of bugs
+- Breaking changes or migrations
+- You have dedicated time (30+ minutes)
+
+**Choose Fast Review When:**
+- Low-risk changes (docs, tests, minor fixes)
+- PR author is experienced team member
+- Time-sensitive (blocking deployment)
+- You're not domain expert (defer to others)
+- PR is already well-reviewed by others
+
+**NEVER:** Rush through high-risk PRs to save time. This creates technical debt.
+
 ## Prerequisites Check
 
 Before starting a PR review, verify prerequisites:
 
-### 1. Check gh CLI Installation
+### Quick Check Commands
 
 ```bash
-gh --version
+gh --version      # Check gh CLI installation
+gh auth status    # Check authentication
+gh repo view      # Verify repository context
 ```
 
-**If not installed:**
-- **macOS:** `brew install gh`
-- **Linux:** See https://github.com/cli/cli/blob/trunk/docs/install_linux.md
-- **Windows:** `winget install --id GitHub.cli`
-- **Manual:** Download from https://cli.github.com
+**If any check fails:**
 
-### 2. Check gh Authentication
+1. **gh not installed:**
+   - Install from: https://cli.github.com
+   - Quick install: `brew install gh` (macOS), `winget install --id GitHub.cli` (Windows)
 
-```bash
-gh auth status
-```
+2. **gh not authenticated:**
+   - Run: `gh auth login`
+   - Follow prompts to authenticate with GitHub
 
-**If not authenticated:**
-```bash
-gh auth login
-```
-
-Follow prompts to authenticate with GitHub.
-
-### 3. Verify Repository Context
-
-```bash
-gh repo view
-```
-
-This should display the current repository. If it fails, you're not in a git repository with a GitHub remote.
+3. **Not in GitHub repo:**
+   - Navigate to repository directory with GitHub remote
 
 **If prerequisites fail:**
 - Show clear error message with setup instructions
@@ -115,6 +179,10 @@ gh pr view 123 -R owner/repo            # Different repository
 - If no PR found: "No pull request found for current branch. Create one with `gh pr create` or specify a PR number."
 - If PR doesn't exist: "PR #123 not found. Check the number and try again."
 
+**IF gh CLI errors occur (auth failures, API errors, command not found):**
+→ LOAD `references/gh-commands-guide.md` — "Troubleshooting" section (lines 354-490)
+→ Follow troubleshooting guide before proceeding
+
 ### Phase 2: Fetch PR Metadata
 
 ```bash
@@ -138,6 +206,11 @@ gh pr view --json \
 ├─ Labels: enhancement, needs-review
 └─ Assignees: @reviewer1, @reviewer2
 ```
+
+**IF need advanced JSON queries or custom jq filtering:**
+→ LOAD `references/gh-commands-guide.md` — "jq Filtering Examples" section (lines 146-216)
+
+**OTHERWISE:** Do NOT load (basic metadata extraction is sufficient).
 
 ### Phase 3: Check CI/CD Status (Safety Gate)
 
@@ -165,6 +238,8 @@ STOPPING REVIEW. Retry after CI passes.
 ```
 
 **STOP if required checks fail.** Do not proceed to code review.
+
+**Note:** Do NOT load references for CI checks (gh pr checks is straightforward).
 
 ### Phase 4: Check PR Size (Safety Gate)
 
@@ -265,6 +340,14 @@ Comments: 5 total
 ```
 
 **Flag critical unresolved comments** (security, breaking changes)
+
+**IF PR has >15 unresolved comments OR review discussion is complex:**
+→ LOAD `references/pr-patterns.md` — "Dealing with Unresolved Conversations" section (lines 438-519)
+
+**IF establishing PR guidelines for a team OR teaching PR review methodology:**
+→ LOAD `references/pr-patterns.md` — Full file for comprehensive best practices
+
+**OTHERWISE:** Do NOT load references (proceed to summary phase).
 
 ### Phase 8: Present PR Summary
 
@@ -571,16 +654,4 @@ Consider:
 Proceed with full review? (y/n)
 ```
 
-## Reference Files
 
-**Load `references/gh-commands-guide.md` when:**
-- Need advanced gh CLI patterns or GraphQL queries
-- Troubleshooting gh CLI authentication or errors
-- Need to filter/transform JSON output with jq
-- Want comprehensive command reference
-
-**Load `references/pr-patterns.md` when:**
-- Establishing PR guidelines for a team
-- Reviewing complex/large PRs and need best practices
-- Teaching PR review methodology
-- Need detailed anti-pattern examples
