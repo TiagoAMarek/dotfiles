@@ -1,0 +1,8 @@
+.copilot
+gcloud
+.DS_Store
+configstore
+sanity/*
+github-copilot/*
+mise/*
+mole/*

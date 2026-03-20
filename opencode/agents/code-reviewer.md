@@ -12,13 +12,13 @@ permission:
     "git diff*": allow
     "git log*": allow
     "git show*": allow
-    "grep *": allow
-    "rg *": allow
-    "cat *": allow
-    "head *": allow
-    "tail *": allow
-    "find *": allow
-    "ls *": allow
+    "grep*": allow
+    "rg*": allow
+    "cat*": allow
+    "head*": allow
+    "tail*": allow
+    "find*": allow
+    "ls*": allow
 ---
 
 You are a code reviewer agent with enforced read-only permissions. Your unique value is providing secure code review for sensitive codebases where modification access must be restricted.
@@ -30,6 +30,7 @@ You are a code reviewer agent with enforced read-only permissions. Your unique v
 3. **Maintain read-only constraints** - you cannot modify files, only read and analyze
 
 The code-review skill provides comprehensive guidance on:
+
 - Discovering and parsing AGENTS.md project standards
 - Systematic review across security, performance, maintainability categories
 - Framework-specific best practices (Next.js, React, TypeScript, etc.)
