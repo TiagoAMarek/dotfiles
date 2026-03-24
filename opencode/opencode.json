@@ -3,6 +3,11 @@
   "default_agent": "plan",
   "model": "github-copilot/claude-sonnet-4.5",
   "small_model": "github-copilot/claude-haiku-4.5",
+  "agent": {
+    "build": {
+      "model": "github-copilot/claude-haiku-4.5"
+    }
+  },
   "share": "disabled",
   "autoupdate": false,
   "compaction": {
@@ -17,8 +22,8 @@
     "cors": []
   },
   "plugin": [
-    "@franlol/opencode-md-table-formatter@0.0.3",
-    "@tarquinen/opencode-dcp@2.1.8"
+    "@tarquinen/opencode-dcp@2.1.8",
+    "superpowers@git+https://github.com/obra/superpowers.git"
   ],
   "permission": {
     "edit": "ask",
@@ -65,11 +70,12 @@
   },
   "mcp": {
     "playwright": {
+      "enabled": false,
       "type": "local",
-      "command": ["npx", "@playwright/mcp@latest"],
-      "enabled": true
+      "command": ["npx", "@playwright/mcp@latest"]
     },
     "Figma": {
+      "enabled": false,
       "url": "https://mcp.figma.com/mcp",
       "type": "remote",
       "oauth": {
