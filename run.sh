@@ -87,23 +87,10 @@ else
   echo "nvm is already installed."
 fi
 
-# Install sst/tap/opencode
-if ! brew list opencode &>/dev/null; then
-  echo "Adding sst/tap and installing opencode..."
-  brew tap sst/tap
-  brew install sst/tap/opencode
-  if [ $? -ne 0 ]; then
-    echo "Failed to install sst/tap/opencode. Exiting."
-    exit 1
-  fi
-else
-  echo "sst/tap/opencode is already installed."
-fi
-
 echo "\nInstalling GUI apps (casks) via Homebrew..."
-brew install --cask ghostty flashspace
+brew install --cask nikitabobko/tap/aerospace
 if [ $? -ne 0 ]; then
-  echo "Failed to install one or more GUI apps (ghostty, flashspace). Exiting."
+  echo "Failed to install one or more GUI apps (aerospace). Exiting."
   exit 1
 fi
 
